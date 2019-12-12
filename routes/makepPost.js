@@ -48,7 +48,8 @@ router.post('/', (req, res) => {
             postContent: postContent,
             track: track,
             postDate: date,
-            likes:0
+            likes:0,
+            comments:[]
         })
             .then(() => {
                 console.log("post success!")
@@ -63,7 +64,8 @@ router.post('/', (req, res) => {
         postContent: postContent,
         track: track,
         postDate: date,
-        likes:0
+        likes:0,
+        comments:[]
     }
     let allPosts=[];
     db.collection("users").doc(uid).get()

@@ -136,11 +136,12 @@ router.post('/profileimage', (req, res) => {
 router.get('/',(req,res)=>{
     // console.log(req.query);
     const uid = req.query.query;
-    // console.log(uid)
+    console.log(uid)
     uid !== undefined &&db.collection("users").doc(uid).get()
         .then(doc=>{
             if (doc.exists) {
                 // console.log("Document data:", doc.data());
+                console.log('send user info!')
                 res.send(doc.data());
             } else {
                 // doc.data() will be undefined in this case

@@ -11,6 +11,7 @@ const getPostRoute = require('./routes/getPost')
 const userRoute =require('./routes/user')
 const deletePostRoute=require('./routes/deletePost')
 const addLikeRoute=require('./routes/addLike')
+const addCommentRoute=require('./routes/addComment')
 
 const app = express();
 
@@ -20,7 +21,7 @@ app.use(cookieParser());
 app.use(bodyParser.json())
 
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://musicjournal.herokuapp.com"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
@@ -31,6 +32,7 @@ app.use("/getpost", getPostRoute);
 app.use("/user",userRoute);
 app.use("/deletePost", deletePostRoute);
 app.use("/addLike", addLikeRoute);
+app.use("/addComment",addCommentRoute);
 
 app.listen(port, () => {
     console.log(`server running on ${port}`);
