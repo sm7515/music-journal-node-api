@@ -42,7 +42,7 @@ router.post('/', (req, res) => {
             .catch(function (error) {
                 console.log("update user post likes error:", error)
             });
-    }, 500);
+    }, 200);
 })
 
 module.exports = router;
